@@ -1,0 +1,30 @@
+kubectl describe event client-pod
+kubectl describe <object type> <object name> e.g kubectl describe pod client-pod
+kubectl apply -f client-pod.yml
+kubectl get pods
+kubectl get services
+kubectl get deployments
+
+to update an image version of deployment that has already been deployed to pod
+kubectl set <the property we want to change> <object type>/<object name> <the container name>=<new image to use>
+eg
+kubectl set image deployment/client-deployment client=stephengrider/multi-client:v5
+
+to make a terminal window to access the docker env of the minikube environment
+eval $(minikube -p minikube docker-env) or run minikube docker-env first
+
+we can get the container id that is running after we have changed the docker to the minikube's vm docker and exec into the container, however kubectl could do the same
+eg
+after running eval $(minikube -p minikube docker-env), grab the container id, then exec into it,
+if we get the pods (kubectl get pods and take the pod name) we can kubectl exec it <pod name> sh to exec into the container
+
+Delete a deployment
+kubectl delete deployment client-deployment
+
+####PVC => peristent volume claim
+
+to create a secret we use commandline: kubectl create secret <type of secret: can be generic/docker-registry/tls> <secret name> --from-literal <key=value pair of the secret> 
+
+k get services -n ingress-nginx
+
+k get pods -n ingress-nginx
