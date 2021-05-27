@@ -38,3 +38,41 @@ k get pods -n ingress-nginx
 GET A URL OF A DEPLOYMENT USING MINIKUBE
 
 minikube service <service name eg: hello-minikube> --url
+
+
+
+
+
+
+
+
+
+
+
+KODEKLOUD
+
+k get replicationController ==> for replicationController
+k get relicaset  ==> for replicaset
+
+When update is made to replicationController or replicaset on the number of replicas use
+k replace -f <replicaset file> 
+or
+k scale --replicas=<new specified number eg 6> -f <replicaset file>
+or type-name format
+k scale --replicas=6 replicaset<which is type> myreplica-set<the replica set name>
+
+to life-edit the replicaset definition file, run
+k edit replicaset<type> myreplica-set<name of my replicaset>
+
+k get rs myreplica-set -o yaml ==> gets a k8s' version of a replicaset definition file. rs is replicaset
+
+k get all ==> gets all available k8s objects
+
+// Deployment
+k rollout status deployment/my-deployment ==> tocheck the status of our deployment rollout
+
+k rollout history deployment/my-deployment  ==> history of deployment rollout
+
+When changes is made to a deployment: apply it
+k apply -f <deploy file> --record => record CHANGE-CLAUSE when we check rollout history
+k set image deployment/my-deploy nginx=nginx:1.8.2 ==> to change image from the terminal

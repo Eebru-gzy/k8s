@@ -1,0 +1,22 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata: 
+  name: my-deployment
+  labels:
+    name: deplo-test
+    teir: frontend
+spec:
+  template:
+    metadata: 
+      name: nginx
+      labels:
+        app: fe
+        type: front-end
+    spec:
+      containers:
+        - name: nginx
+          image: nginxx
+  replicas: 2
+  selector:
+    matchLabels:
+      app: fe
