@@ -39,8 +39,10 @@ GET A URL OF A DEPLOYMENT USING MINIKUBE
 
 minikube service <service name eg: hello-minikube> --url
 
-
-
+for K8s Service
+minikube service my-service --url
+List services
+minikube service list
 
 
 
