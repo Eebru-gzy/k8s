@@ -49,7 +49,7 @@ minikube service <service name eg: hello-minikube> --url
 
 
 
-KODEKLOUD
+____________KODEKLOUD_______________
 
 k get replicationController ==> for replicationController
 k get relicaset  ==> for replicaset
