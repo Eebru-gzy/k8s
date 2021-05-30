@@ -1,14 +1,11 @@
 apiVersion: v1
 kind: Service
 metadata: 
-  name: my-service
+  name: my-clusterip
 spec:
-  type: NodePort
+  type: ClusterIP
   ports:
     - targetPort: 80
-      nodePort: 30008
       port: 80
   selector:
-    app: fe
-    type: front-end
-    
+    type: back-end
